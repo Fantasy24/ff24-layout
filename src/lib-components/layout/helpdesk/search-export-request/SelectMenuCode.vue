@@ -24,9 +24,9 @@
 
 <script>
 import ElSelectTree from 'el-select-tree'
-import ConstantAPI from "etc-js/src/utils/ConstantAPI";
-import apiFactory from "etc-js/src/api/apiFactory";
-import {errAlert} from "etc-js/src/utils/AlertMessage";
+import ConstantAPI from "ff24-js/src/utils/ConstantAPI";
+import apiFactory from "ff24-js/src/api/apiFactory";
+import {errAlert} from "ff24-js/src/utils/AlertMessage";
 
 export default {
   name: 'SelectMenuCode',

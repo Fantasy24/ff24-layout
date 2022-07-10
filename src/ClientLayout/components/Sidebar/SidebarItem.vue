@@ -43,10 +43,10 @@
 
 <script>
 import path from 'path'
-import {isExternal} from 'etc-js/src/utils/validate'
+import {isExternal} from 'ff24-js/src/utils/validate'
 import Item from './SideBarMenuItem.vue'
 import AppLink from './SideBarLink.vue'
-import {cutLongTitle, generateTitle} from 'etc-js/src/utils/i18n'
+import {cutLongTitle, generateTitle} from 'ff24-js/src/utils/i18n'
 import FixiOSBug from './FixiOSBug'
 
 export default {

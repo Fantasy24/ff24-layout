@@ -40,11 +40,11 @@
 </template>
 
 <script>
-import path from 'path';
-import {isExternal} from 'etc-js/src/utils/validate';
+import * as path from 'path';
+import {isExternal} from 'ff24-js/src/utils/validate';
 import Item from './SideBarMenuItem.vue';
 import AppLink from './SideBarLink.vue';
-import {generateTitle, cutLongTitle} from 'etc-js/src/utils/i18n';
+import {generateTitle, cutLongTitle} from 'ff24-js/src/utils/i18n';
 
 export default {
   name: 'SidebarItem',

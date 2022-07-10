@@ -79,13 +79,13 @@
 </template>
 
 <script>
-import apiFactory from 'etc-js/src/api/apiFactory'
-import {ALERT_URL, NOTIFY_INTERVAL, PAGINATION_PARAM} from 'etc-js/src/utils/Constant'
-import {errAlert} from 'etc-js/src/utils/AlertMessage'
+import apiFactory from 'ff24-js/src/api/apiFactory'
+import {ALERT_URL, NOTIFY_INTERVAL, PAGINATION_PARAM} from 'ff24-js/src/utils/Constant'
+import {errAlert} from 'ff24-js/src/utils/AlertMessage'
 import TabContent from './TabContent.vue'
-import ConstantAPI from 'etc-js/src/utils/ConstantAPI'
+import ConstantAPI from 'ff24-js/src/utils/ConstantAPI'
 import Cookies from 'js-cookie'
-import {getToken} from 'etc-js/src/utils/authCookie'
+import {getToken} from 'ff24-js/src/utils/authCookie'
 
 const alert = new Audio(ALERT_URL)
 let getNewNoity

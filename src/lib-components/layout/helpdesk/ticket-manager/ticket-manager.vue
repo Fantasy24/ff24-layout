@@ -408,11 +408,11 @@
 </template>
 
 <script>
-import apiFactory from 'etc-js/src/api/apiFactory'
-import ConstantAPI from 'etc-js/src/utils/ConstantAPI'
-import {errAlert, showAlert, SUCCESS, WARNING} from 'etc-js/src/utils/AlertMessage'
+import apiFactory from 'ff24-js/src/api/apiFactory'
+import ConstantAPI from 'ff24-js/src/utils/ConstantAPI'
+import {errAlert, showAlert, SUCCESS, WARNING} from 'ff24-js/src/utils/AlertMessage'
 import {mapGetters} from 'vuex'
-import {MENU_CODE_API_HELPDESK, PAGINATION_PARAM} from 'etc-js/src/utils/Constant'
+import {MENU_CODE_API_HELPDESK, PAGINATION_PARAM} from 'ff24-js/src/utils/Constant'
 import Pagination from '../../../../components/Pagination/index.vue'
 import Tinymce from '../../../../components/Tinymce/index.vue'
 

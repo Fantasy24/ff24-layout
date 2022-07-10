@@ -31,10 +31,10 @@
 </template>
 
 <script>
-import apiFactory from 'etc-js/src/api/apiFactory';
-import ConstantAPI from 'etc-js/src/utils/ConstantAPI';
-import {errAlert} from 'etc-js/src/utils/AlertMessage';
-import {WHITE_LIST} from 'etc-js/src/utils/Constant';
+import apiFactory from 'ff24-js/src/api/apiFactory';
+import ConstantAPI from 'ff24-js/src/utils/ConstantAPI';
+import {errAlert} from 'ff24-js/src/utils/AlertMessage';
+import {WHITE_LIST} from 'ff24-js/src/utils/Constant';
 
 export default {
   name: 'Requirement',

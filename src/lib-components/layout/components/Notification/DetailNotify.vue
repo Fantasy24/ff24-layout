@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import {formatFullDateTime_VN} from 'etc-js/src/filters'
+import {formatFullDateTime_VN} from 'ff24-js/src/filters'
 
 export default {
   name: 'DetailNotify',

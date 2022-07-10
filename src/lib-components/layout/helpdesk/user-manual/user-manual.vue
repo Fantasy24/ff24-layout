@@ -19,9 +19,9 @@
 </template>
 
 <script>
-import apiFactory from 'etc-js/src/api/apiFactory'
-import ConstantAPI from 'etc-js/src/utils/ConstantAPI'
-import { errAlert } from 'etc-js/src/utils/AlertMessage'
+import apiFactory from 'ff24-js/src/api/apiFactory'
+import ConstantAPI from 'ff24-js/src/utils/ConstantAPI'
+import { errAlert } from 'ff24-js/src/utils/AlertMessage'
 import Tinymce from '../../../../components/Tinymce/index.vue'
 
 export default {

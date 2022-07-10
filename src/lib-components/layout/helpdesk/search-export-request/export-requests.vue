@@ -158,19 +158,19 @@
 </template>
 
 <script>
-import ElPopup from 'etc-customs-lib/src/components/ElPopup/index.vue'
-import DateRangePicker from 'etc-customs-lib/src/components/DateRangePicker/index.vue'
-import ElInputEtc from 'etc-customs-lib/src/components/ElInputETC/ElInputEtc.vue'
-import Pagination from 'etc-customs-lib/src/components/Pagination/index.vue'
-import {deepClone, requiredRule} from 'etc-js/src/utils'
-import {PAGINATION_PARAM} from 'etc-js/src/utils/Constant'
+import ElPopup from 'ff24-customs-lib/src/components/ElPopup/index.vue'
+import DateRangePicker from 'ff24-customs-lib/src/components/DateRangePicker/index.vue'
+import ElInputEtc from 'ff24-customs-lib/src/components/ElInputETC/ElInputEtc.vue'
+import Pagination from 'ff24-customs-lib/src/components/Pagination/index.vue'
+import {deepClone, requiredRule} from 'ff24-js/src/utils'
+import {PAGINATION_PARAM} from 'ff24-js/src/utils/Constant'
 import SelectMenuCode from './SelectMenuCode.vue'
 import SelectGroup from './SelectGroup.vue'
-import apiFactory from 'etc-js/src/api/apiFactory'
-import ConstantAPI from 'etc-js/src/utils/ConstantAPI'
-import {errAlert, showAlert, SUCCESS} from 'etc-js/src/utils/AlertMessage'
-import {formatFullDateTime_VN} from 'etc-js/src/filters'
-import {SEARCH_RULES} from 'etc-js/src/utils/KeySearchListObj'
+import apiFactory from 'ff24-js/src/api/apiFactory'
+import ConstantAPI from 'ff24-js/src/utils/ConstantAPI'
+import {errAlert, showAlert, SUCCESS} from 'ff24-js/src/utils/AlertMessage'
+import {formatFullDateTime_VN} from 'ff24-js/src/filters'
+import {SEARCH_RULES} from 'ff24-js/src/utils/KeySearchListObj'
 
 export default {
   components: {

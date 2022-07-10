@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import {scrollTo} from 'etc-js/src/utils/scroll-to';
+import {scrollTo} from 'ff24-js/src/utils/scroll-to';
 
 export default {
   name: 'Pagination',

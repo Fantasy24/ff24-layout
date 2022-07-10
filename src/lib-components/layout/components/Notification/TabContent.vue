@@ -66,12 +66,12 @@
 </template>
 
 <script>
-import apiFactory from 'etc-js/src/api/apiFactory'
+import apiFactory from 'ff24-js/src/api/apiFactory'
 import Detail from './DetailNotify.vue'
-import ConstantAPI from 'etc-js/src/utils/ConstantAPI'
-import { errAlert } from 'etc-js/src/utils/AlertMessage'
-import { formatFullDateTime_VN } from 'etc-js/src/filters'
-import { mapComputed } from 'etc-js/src/utils'
+import ConstantAPI from 'ff24-js/src/utils/ConstantAPI'
+import { errAlert } from 'ff24-js/src/utils/AlertMessage'
+import { formatFullDateTime_VN } from 'ff24-js/src/filters'
+import { mapComputed } from 'ff24-js/src/utils'
 
 export default {
   name: 'TabContent',

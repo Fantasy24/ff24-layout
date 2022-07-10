@@ -83,9 +83,9 @@ import HeaderSearch from './HeaderSearch/HeaderSearch.vue'
 import LangSelect from './LangSelect/index.vue'
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 import {asyncRoutes} from '@/router/routerFactory'
-import apiFactory from "etc-js/src/api/apiFactory";
-import ConstantAPI from "etc-js/src/utils/ConstantAPI";
-import {getToken} from "etc-js/src/utils/authCookie";
+import apiFactory from "ff24-js/src/api/apiFactory";
+import ConstantAPI from "ff24-js/src/utils/ConstantAPI";
+import {getToken} from "ff24-js/src/utils/authCookie";
 
 export default {
   components: {

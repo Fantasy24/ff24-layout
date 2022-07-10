@@ -33,7 +33,7 @@
 <script>
 import Fuse from 'fuse.js'
 import path from 'path'
-import {generateTitle} from 'etc-js/src/utils/i18n'
+import {generateTitle} from 'ff24-js/src/utils/i18n'
 
 export default {
   name: 'HeaderSearch',

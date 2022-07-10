@@ -27,8 +27,8 @@
 <script>
 import Fuse from 'fuse.js'
 import path from 'path'
-import i18n from 'etc-js/src/lang'
-import { generateTitle } from 'etc-js/src/utils/i18n'
+import i18n from 'ff24-js/src/lang'
+import { generateTitle } from 'ff24-js/src/utils/i18n'
 
 export default {
   name: 'HeaderSearch',

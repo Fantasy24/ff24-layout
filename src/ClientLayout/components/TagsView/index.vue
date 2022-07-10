@@ -27,7 +27,7 @@
 
 <script>
 import ScrollPane from './ScrollPane.vue'
-import {generateTitle} from 'etc-js/src/utils/i18n'
+import {generateTitle} from 'ff24-js/src/utils/i18n'
 import path from 'path'
 
 export default {

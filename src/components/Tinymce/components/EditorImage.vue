@@ -50,7 +50,7 @@
 <script>
 // import { getToken } from 'api/qiniu'
 
-import {showAlert, WARNING} from 'etc-js/src/utils/AlertMessage';
+import {showAlert, WARNING} from 'ff24-js/src/utils/AlertMessage';
 
 export default {
   name: 'EditorSlideUpload',

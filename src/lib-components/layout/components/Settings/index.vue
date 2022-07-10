@@ -117,9 +117,9 @@
 </template>
 
 <script>
-import apiFactory from 'etc-js/src/api/apiFactory'
-import ConstantAPI from 'etc-js/src/utils/ConstantAPI'
-import {showAlert, WARNING} from 'etc-js/src/utils/AlertMessage'
+import apiFactory from 'ff24-js/src/api/apiFactory'
+import ConstantAPI from 'ff24-js/src/utils/ConstantAPI'
+import {showAlert, WARNING} from 'ff24-js/src/utils/AlertMessage'
 import Requirement from '../../helpdesk/requirement/requirement.vue'
 
 export default {

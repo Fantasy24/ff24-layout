@@ -158,10 +158,10 @@
 </template>
 
 <script>
-import apiFactory from 'etc-js/src/api/apiFactory';
-import ConstantAPI from 'etc-js/src/utils/ConstantAPI';
-import {ERROR, showAlert} from 'etc-js/src/utils/AlertMessage';
-import {API_HELPDESK, MENU_CODE_API_HELPDESK} from 'etc-js/src/utils/Constant';
+import apiFactory from 'ff24-js/src/api/apiFactory';
+import ConstantAPI from 'ff24-js/src/utils/ConstantAPI';
+import {ERROR, showAlert} from 'ff24-js/src/utils/AlertMessage';
+import {API_HELPDESK, MENU_CODE_API_HELPDESK} from 'ff24-js/src/utils/Constant';
 
 export default {
   name: 'BodyDetailView',

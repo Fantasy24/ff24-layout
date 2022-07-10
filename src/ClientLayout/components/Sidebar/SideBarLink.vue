@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import {isExternal} from 'etc-js/src/utils/validate'
+import {isExternal} from 'ff24-js/src/utils/validate'
 
 export default {
   props: {

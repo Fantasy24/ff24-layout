@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import {showAlert, SUCCESS} from 'etc-js/src/utils/AlertMessage';
+import {showAlert, SUCCESS} from 'ff24-js/src/utils/AlertMessage';
 
 const VI_MSG = 'Chuyển ngôn ngữ sang [Tiếng việt]';
 const EN_MSG = 'Changed language to [English]';

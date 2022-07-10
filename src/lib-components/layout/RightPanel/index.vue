@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { addClass, removeClass } from 'etc-js/src/utils'
+import { addClass, removeClass } from 'ff24-js/src/utils'
 
 export default {
   name: 'RightPanel',

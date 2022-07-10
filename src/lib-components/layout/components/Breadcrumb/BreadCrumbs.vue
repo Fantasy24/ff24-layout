@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import {cutLongTitle, generateTitle} from 'etc-js/src/utils/i18n';
+import {cutLongTitle, generateTitle} from 'ff24-js/src/utils/i18n';
 import { compile } from 'path-to-regexp';
 
 export default {
