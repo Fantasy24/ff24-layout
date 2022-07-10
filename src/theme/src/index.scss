@@ -1,0 +1,596 @@
+@import './variables.scss';
+@import './mixin.scss';
+@import './transition.scss';
+@import './element-ui.scss';
+@import './sidebar.scss';
+@import './btn.scss';
+
+body {
+  height: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+
+/** CSS Component ThongTinToKhai ECCP*/
+.formToKhai {
+  span {
+    font-size: 12px !important;
+  }
+
+  p {
+    margin: 0;
+
+    .el-form-item__label {
+      padding-left: 20px;
+    }
+  }
+
+  .el-divider--horizontal {
+    margin: 10px 0 !important;
+    background-color: #888888 !important;
+  }
+
+  .el-form-item__label {
+    font-size: 12px;
+  }
+
+  .el-form-item--mini.el-form-item, .el-form-item--small.el-form-item {
+    margin-bottom: 2px !important;
+  }
+}
+
+.formXuat {
+  .el-table th, .el-table thead.is-group th {
+    background-color: #ffdede !important;
+    color: #696a6a !important;
+  }
+
+  .el-table th, .el-table tr {
+    background-color: #ffdede !important;
+  }
+
+  .el-table--enable-row-hover .el-table__body tr:hover>td {
+    background-color: #fdd8d8;
+  }
+
+  .el-table__empty-block {
+    background-color: #fdd8d8;
+  }
+}
+
+.formNhap {
+  .el-table th, .el-table thead.is-group th {
+    background-color: #e2ffff !important;
+    color: #696a6a !important;
+  }
+
+  .el-table th, .el-table tr {
+    background-color: #e2ffff !important;
+  }
+
+  .el-table--enable-row-hover .el-table__body tr:hover>td {
+    background-color: #d1fdfd;
+  }
+
+  .el-table__empty-block {
+    background-color: #d1fdfd;
+  }
+}
+/** CSS Component ThongTinToKhai ECCP*/
+
+label {
+  font-weight: 700;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#app {
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.el-dialog__body {
+  padding: 10px 10px !important;
+}
+
+.el-card__body {
+  padding: 10px !important;
+}
+
+.el-card__header {
+  padding: 7px 10px !important;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.padding-content {
+  padding: 4px 0;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+div:focus {
+  outline: none;
+}
+
+.fr {
+  float: right;
+}
+
+.fl {
+  float: left;
+}
+
+.pr-5 {
+  padding-right: 5px;
+}
+
+.pl-5 {
+  padding-left: 5px;
+}
+
+.block {
+  display: block;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.inlineBlock {
+  display: block;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+aside {
+  background: #eef1f6;
+  padding: 8px 24px;
+  margin-bottom: 20px;
+  border-radius: 2px;
+  display: block;
+  line-height: 32px;
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  color: #2c3e50;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  a {
+    color: #337ab7;
+    cursor: pointer;
+
+    &:hover {
+      color: rgb(32, 160, 255);
+    }
+  }
+}
+
+//main-container全局样式
+.app-container {
+  padding: 10px;
+}
+
+.components-container {
+  margin: 30px 50px;
+  position: relative;
+}
+
+.pagination-container {
+  //margin-top: 30px;
+}
+
+.text-center {
+  text-align: center
+}
+
+.sub-navbar {
+  height: 50px;
+  line-height: 50px;
+  position: relative;
+  width: 100%;
+  text-align: right;
+  padding-right: 20px;
+  transition: 300ms ease position;
+  background: linear-gradient(90deg, rgba(32, 182, 249, 1) 0%, rgba(32, 182, 249, 1) 0%, rgba(33, 120, 241, 1) 100%, rgba(33, 120, 241, 1) 100%);
+
+  .subtitle {
+    font-size: 20px;
+    color: #fff;
+  }
+
+  &.draft {
+    background: #d0d0d0;
+  }
+
+  &.deleted {
+    background: #d0d0d0;
+  }
+}
+
+.link-type,
+.link-type:focus {
+  color: #337ab7;
+  cursor: pointer;
+
+  &:hover {
+    color: rgb(32, 160, 255);
+  }
+}
+
+.filter-container {
+  padding-bottom: 10px;
+
+  .filter-item {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 10px;
+  }
+}
+
+//refine vue-multiselect plugin
+.multiselect {
+  line-height: 16px;
+}
+
+.multiselect--active {
+  z-index: 1000 !important;
+}
+
+.el-badge__content.is-fixed {
+  top: 10px;
+  right: 5px !important;
+}
+
+/*CuongTM: config color of table*/
+.el-table td div {
+  white-space: pre;
+}
+
+.el-pagination .el-select .el-input {
+  width: 100px !important;
+}
+
+.el-form-item.is-required .el-form-item__label::after {
+  content: "*";
+  padding-left: 5px;
+  color: red;
+}
+
+.el-form-item.is-required .el-form-item__label::before {
+  content: '' !important;
+  margin-right: 0 !important;
+}
+
+.el-menu-item {
+  font-size: 12px !important;
+  height: 35px !important;
+  line-height: 35px !important;
+  font-weight: bold;
+}
+
+//Bold
+.el-submenu__title {
+  font-size: 12px !important;
+  height: 35px !important;
+  line-height: 35px !important;
+  min-width: $sideBarWidth !important;
+  font-weight: bold;
+}
+
+/*el-table*/
+.el-table th {
+  text-align: center !important;
+  background-color: #1A4792 !important;
+  color: #fff !important;
+}
+
+.el-table .cell {
+  word-break: break-word !important;
+}
+
+.el-table thead.is-group th {
+  background-color: #1A4792 !important;
+  color: #fff !important;
+}
+
+.el-table th, .el-table thead.is-group th {
+  padding: 0 !important;
+}
+
+.el-table--striped .el-table__body tr.el-table__row--striped td {
+  background: #E7F5FD !important;
+}
+
+.el-table--striped .el-table__body tr {
+  background-color: #f5fbff !important;
+}
+
+/* HighLight current row*/
+.el-table__body tr.current-row > td {
+  border-block: 1px solid #11d7d7;
+  background-color: #1890ff;
+  color: #f5f5f5;
+  font-weight: 700
+}
+
+.el-table__body tr.hover-row.current-row > td, .el-table__body tr.hover-row.el-table__row--striped.current-row > td, .el-table__body tr.hover-row.el-table__row--striped > td, .el-table__body tr.hover-row > td {
+  background-color: #77bdff;
+  color: initial
+}
+
+.el-table--enable-row-hover .el-table__body tr:hover > td {
+  background-color: #77bdff;
+}
+
+.el-table__fixed-right {
+  height: 100% !important;
+}
+
+/*el-table*/
+
+.el-form-item__label {
+  text-align: left !important;
+}
+
+.el-message {
+  left: 89% !important;
+  margin-top: 45px !important;
+}
+
+.EmptyBox5 {
+  height: 5px !important;
+}
+
+.EmptyBox10 {
+  height: 10px !important;
+}
+
+.EmptyBox20 {
+  height: 20px !important;
+}
+
+.el-select-tree__empty {
+  text-indent: -9999px !important;
+  line-height: 0 !important;
+}
+
+.el-select-tree__empty:after {
+  content: 'Không có dữ liệu' !important;
+  text-indent: 0 !important;
+  display: block !important;
+  line-height: initial !important;
+}
+
+.viewSpan {
+  white-space: break-spaces !important;
+  word-break: break-word !important;
+}
+
+.el-tooltip__popper {
+  font-size: 14px !important;
+  max-width: 50% !important;
+}
+
+//Dialog container
+.dialog-container {
+  padding: 5px;
+  width: 100%;
+  height: 100%;
+  max-height: calc(100vh - 200px) !important;
+  overflow: auto;
+  overflow-x: hidden !important;
+}
+
+/* fix input padding text ko bị đè bời đếm ký tự còn lại*/
+.el-textarea .el-input__count{
+  line-height: 10px;
+  bottom: -12px;
+  right: 7px;
+  border-radius: 1px;
+}
+
+.long-input {
+  .el-input--suffix .el-input__inner {
+    padding-right: 90px !important;
+  }
+}
+/* fix input padding text ko bị đè bời đếm ký tự còn lại*/
+
+/* fix all input căn trái*/
+.el-input__inner {
+  text-align: left !important;
+}
+
+.el-button {
+  font-family: element-icons, Helvetica, serif !important;
+}
+
+.el-date-editor .el-range-separator {
+  padding: 0 10px !important;
+}
+
+/* declaration-container*/
+.declaration-container {
+  padding: 0.3rem;
+
+  .header-text {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-top: 0;
+
+    &-wrapper {
+      margin-bottom: 34px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .header-text-stk,
+  .header-text-stn {
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-right: 10px;
+  }
+
+  .step-content-container {
+    border: 2px solid #42d885;
+    border-radius: 5px;
+    margin: 30px 0 0 0;
+
+    .step-title {
+      text-transform: uppercase;
+      padding: 10px 10px 10px 20px;
+    }
+
+    .step-content {
+      padding: 0px 10px 10px 10px;
+      height: calc(100vh - 325px);
+      overflow-y: auto;
+    }
+  }
+
+  .icon-wrapper {
+    border: 1px solid #e0e5ee;
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 20px;
+
+    &.success {
+      border: 1px solid #3ec1d3;
+    }
+
+    .triangle:after,
+    .triangle:before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+
+    .triangle:after {
+      bottom: -27.25px;
+      border-color: transparent transparent #42d885 transparent;
+      border-width: 12px;
+    }
+
+    .triangle:before {
+      bottom: -26.25px;
+      right: 9px;
+      border-color: transparent transparent #fff transparent;
+      border-width: 13px;
+    }
+  }
+}
+/* declaration-container*/
+
+/*** Custom Steps*/
+.el-steps {
+  width: 80%;
+  margin: 20px auto;
+}
+
+.el-tooltip__popper {
+  &.tooltip-popper {
+    background: #3ec1d3 !important;
+
+    & .popper__arrow::after {
+      border-top-color: #3ec1d3 !important;
+    }
+
+    & .popper__arrow {
+      border-top-color: #3ec1d3 !important;
+    }
+  }
+}
+
+.el-popover {
+  &.visible-tooltip {
+    background: #3ec1d3 !important;
+    padding: 10px 10px 0 10px !important;
+    min-width: auto !important;
+
+    & .popper__arrow::after {
+      border-top-color: #3ec1d3 !important;
+    }
+
+    & .popper__arrow {
+      border-top-color: #3ec1d3 !important;
+    }
+  }
+
+  & .el-popover__title {
+    color: #fff !important;
+  }
+}
+
+.step-success {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  color: #13ce66;
+}
+
+.step-failure {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  color: #ffba00;
+}
+
+.footer-button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+
+  .step-name {
+    color: #777;
+    margin: 10px;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+}
+
+.dialog-button-container {
+  display: flex;
+  justify-content: space-between;
+}
+/* Custom Steps*/
+
+
