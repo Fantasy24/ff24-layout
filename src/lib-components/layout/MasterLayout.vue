@@ -1,37 +1,41 @@
 <template>
   <div :class="classObj" class="app-wrapper">
-    <div v-if="classObj.mobile && sidebar.opened" class="drawer-bg" @click="handleClickOutside"/>
-    <sidebar :sidebar-logo="sidebarLogo" class="sidebar-container"/>
-    <div :class="{hasTagsView:true}" class="main-container">
+    <div
+      v-if="classObj.mobile && sidebar.opened"
+      class="drawer-bg"
+      @click="handleClickOutside"
+    />
+    <sidebar :sidebar-logo="sidebarLogo" class="sidebar-container" />
+    <div :class="{ hasTagsView: true }" class="main-container">
       <div class="fixed-header">
-        <topbar/>
+        <topbar />
 
-        <tags-view/>
+        <tags-view />
 
-        <breadcrumbs id="breadcrumb-container" class="breadcrumb-container"/>
+        <breadcrumbs id="breadcrumb-container" class="breadcrumb-container" />
       </div>
 
-      <app-main/>
+      <app-main />
       <right-panel v-if="showSettings">
-        <settings/>
+        <settings />
       </right-panel>
     </div>
   </div>
 </template>
 
 <script>
-import RightPanel from './RightPanel/index.vue'
-import AppMain from './components/AppMain.vue'
-import Topbar from './components/Topbar.vue'
-import Settings from './components/Settings/index.vue'
-import Sidebar from './components/Sidebar/SideBarMaster.vue'
-import TagsView from './components/TagsView/index.vue'
-import Breadcrumbs from './components/Breadcrumb/BreadCrumbs.vue'
-import ResizeMixin from './mixin/ResizeHandler'
-import { mapState } from 'vuex'
+import RightPanel from "./RightPanel/index.vue";
+import AppMain from "./components/AppMain.vue";
+import Topbar from "./components/Topbar.vue";
+import Settings from "./components/Settings/index.vue";
+import Sidebar from "./components/Sidebar/SideBarMaster.vue";
+import TagsView from "./components/TagsView/index.vue";
+import Breadcrumbs from "./components/Breadcrumb/BreadCrumbs.vue";
+import ResizeMixin from "./mixin/ResizeHandler";
+import { mapState } from "vuex";
 
 export default {
-  name: 'MasterLayoutBase',
+  name: "MasterLayoutBase",
   components: {
     Breadcrumbs,
     AppMain,
@@ -39,45 +43,52 @@ export default {
     RightPanel,
     Settings,
     Sidebar,
-    TagsView
+    TagsView,
   },
   mixins: [ResizeMixin],
   props: {
-    sidebarLogo: String
+    sidebarLogo: String,
   },
   computed: {
-    ...mapState('app', ['window']),
+    ...mapState("app", ["window"]),
     sidebar() {
-      return this.$store.state.app.sidebar
+      return this.$store.state.app.sidebar;
     },
     device() {
-      return this.$store.state.app.device
+      return this.$store.state.app.device;
     },
     fixedHeader() {
-      return this.$store.state.app.fixedHeader
+      return this.$store.state.app.fixedHeader;
     },
     showSettings() {
-      return !process.env.VUE_APP_SHOW_RIGHT_PANEL
+      return !process.env.VUE_APP_SHOW_RIGHT_PANEL;
     },
     classObj() {
+      console.log(this.$store);
+      console.log(this.$store.state);
+      console.log(this.$store.state.app.sidebar);
       return {
         hideSidebar: !this.sidebar.opened,
         openSidebar: this.sidebar.opened,
         withoutAnimation: this.sidebar.withoutAnimation,
-        mobile: this.window.width <= 1366
-      }
-    }
+        mobile: this.window.width <= 1366,
+      };
+    },
+  },
+  mounted() {
+    console.log(this.$store);
+    console.log(this.$store.state);
+    console.log(this.$store.state.app.sidebar);
   },
   methods: {
     handleClickOutside() {
-      this.$store.dispatch('app/closeSideBar', { withoutAnimation: false })
-    }
-  }
-}
+      this.$store.dispatch("app/closeSideBar", { withoutAnimation: false });
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-
 .app-wrapper {
   position: relative;
   height: 100%;
@@ -109,7 +120,7 @@ export default {
 }
 
 .hideSidebar .fixed-header {
-  width: calc(100% - 54px)
+  width: calc(100% - 54px);
 }
 
 .mobile .fixed-header {
@@ -123,5 +134,4 @@ export default {
   z-index: 9000;
   font-size: 120%;
 }
-
 </style>

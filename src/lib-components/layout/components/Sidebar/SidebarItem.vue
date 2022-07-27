@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import * as path from 'path';
+// import * as path from 'path';
 import {isExternal} from 'ff24-js/src/utils/validate';
 import Item from './SideBarMenuItem.vue';
 import AppLink from './SideBarLink.vue';
@@ -101,7 +101,8 @@ export default {
       if (isExternal(this.basePath)) {
         return this.basePath
       }
-      return path.resolve(this.basePath, routePath)
+      //return path.resolve(this.basePath, routePath)
+      return routePath
     },
 
     generateTitle,

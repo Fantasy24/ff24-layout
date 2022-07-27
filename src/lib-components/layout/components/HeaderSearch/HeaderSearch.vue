@@ -26,8 +26,8 @@
 
 <script>
 import Fuse from 'fuse.js'
-import path from 'path'
-import i18n from 'ff24-js/src/lang'
+// import path from 'path'
+//import i18n from 'ff24-js/src/lang'
 import { generateTitle } from 'ff24-js/src/utils/i18n'
 // const path = require('path')
 
@@ -117,11 +117,10 @@ export default {
         if (router.hidden) {
           continue
         }
-        let dir = basePath
-        dir = ''
+
         //  path: path.resolve(basePath, router.path),
         const data = {
-          path: path.resolve(basePath, router.path),
+          path: router.path,
           title: [...prefixTitle]
         }
         if (router.meta && router.meta.title) {
