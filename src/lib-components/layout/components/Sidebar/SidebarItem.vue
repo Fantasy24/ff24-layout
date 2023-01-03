@@ -1,39 +1,47 @@
 <template>
   <div v-if="!item.hidden">
     <template
-        v-if="hasOneShowingChild(item.children,item) && (!onlyOneChild.children||onlyOneChild.noShowingChildren) && !item.alwaysShow"
+      v-if="
+        hasOneShowingChild(item.children, item) &&
+        (!onlyOneChild.children || onlyOneChild.noShowingChildren) &&
+        !item.alwaysShow
+      "
     >
       <app-link v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)">
         <el-menu-item
-            :class="{'submenu-title-noDropdown':!isNest}"
-            :index="resolvePath(onlyOneChild.path)"
-            :title="generateTitle(onlyOneChild.name).toUpperCase()"
+          :class="{ 'submenu-title-noDropdown': !isNest }"
+          :index="resolvePath(onlyOneChild.path)"
+          :title="generateTitle(onlyOneChild.name).toUpperCase()"
         >
           <item
-              :icon="onlyOneChild.meta.icon||(item.meta&&item.meta.icon)"
-              :title="cutLongTitle(generateTitle(onlyOneChild.name))"
+            :icon="onlyOneChild.meta.icon || (item.meta && item.meta.icon)"
+            :title="cutLongTitle(generateTitle(onlyOneChild.name))"
           />
         </el-menu-item>
       </app-link>
     </template>
 
     <el-submenu
-        v-else
-        ref="subMenu"
-        :index="resolvePath(item.path)"
-        :title="generateTitle(item.name).toUpperCase()"
-        popper-append-to-body
+      v-else
+      ref="subMenu"
+      :index="resolvePath(item.path)"
+      :title="generateTitle(item.name).toUpperCase()"
+      popper-append-to-body
     >
       <template slot="title">
-        <item v-if="item.meta" :icon="item.meta && item.meta.icon" :title="cutLongTitle(generateTitle(item.name)).toUpperCase()" />
+        <item
+          v-if="item.meta"
+          :icon="item.meta && item.meta.icon"
+          :title="cutLongTitle(generateTitle(item.name)).toUpperCase()"
+        />
       </template>
       <sidebar-item
-          v-for="child in item.children"
-          :key="child.path"
-          :base-path="resolvePath(child.path)"
-          :is-nest="true"
-          :item="child"
-          class="nest-menu"
+        v-for="child in item.children"
+        :key="child.path"
+        :base-path="resolvePath(child.path)"
+        :is-nest="true"
+        :item="child"
+        class="nest-menu"
       />
     </el-submenu>
   </div>
@@ -41,72 +49,100 @@
 
 <script>
 // import * as path from 'path';
-import {isExternal} from 'ff24-js/src/utils/validate';
-import Item from './SideBarMenuItem.vue';
-import AppLink from './SideBarLink.vue';
-import {generateTitle, cutLongTitle} from 'ff24-js/src/utils/i18n';
+import { isExternal } from "ff24-js/src/utils/validate";
+import Item from "./SideBarMenuItem.vue";
+import AppLink from "./SideBarLink.vue";
+import { generateTitle, cutLongTitle } from "ff24-js/src/utils/i18n";
 
 export default {
-  name: 'SidebarItem',
+  name: "SidebarItem",
   components: { Item, AppLink },
   props: {
     // route object
     item: {
       type: Object,
-      required: true
+      required: true,
     },
     isNest: {
       type: Boolean,
-      default: false
+      default: false,
     },
     basePath: {
       type: String,
-      default: ''
-    }
+      default: "",
+    },
   },
   data() {
     // To fix https://github.com/PanJiaChen/vue-admin-template/issues/237
-    this.onlyOneChild = null
-    return {}
+    this.onlyOneChild = null;
+    return {};
   },
   methods: {
     hasOneShowingChild(children = [], parent) {
-      const showingChildren = children.filter(item => {
+      const showingChildren = children.filter((item) => {
         if (item.hidden) {
-          return false
+          return false;
         } else {
           // Temp set(will be used if only has one showing child)
-          this.onlyOneChild = item
-          return true
+          this.onlyOneChild = item;
+          return true;
         }
-      })
+      });
 
       // When there is only one child router, the child router is displayed by default
       if (showingChildren.length === 1) {
-        return true
+        return true;
       }
 
       // Show parent if there are no child router to display
       if (showingChildren.length === 0) {
-        this.onlyOneChild = { ...parent, path: '', noShowingChildren: true }
-        return true
+        this.onlyOneChild = { ...parent, path: "", noShowingChildren: true };
+        return true;
       }
 
-      return false
+      return false;
     },
-    resolvePath(routePath) {
+    joinPath(basePath, routePath) {
+      const arrDK = [undefined, null, ""];
+      if (basePath === routePath) {
+        return basePath;
+      } else if (arrDK.indexOf(basePath) > -1) {
+        return routePath;
+      } else if (arrDK.indexOf(routePath) > -1) {
+        return basePath;
+      } else {
+        const strPath = basePath + "/" + routePath;
+        return strPath.replace("\/\/", "\/");
+      }
+    },
+    resolvePath_BK(routePath) {
       if (isExternal(routePath)) {
-        return routePath
+        return routePath;
       }
       if (isExternal(this.basePath)) {
-        return this.basePath
+        return this.basePath;
       }
-      //return path.resolve(this.basePath, routePath)
-      return routePath
+      // return path.resolve(this.basePath, routePath);
+      return routePath;
+    },
+    resolvePath(routePath) {
+      //console.log("routePath resolvePath");
+      //console.log(routePath);
+      if (isExternal(routePath)) {
+        return routePath;
+      }
+      if (isExternal(this.basePath)) {
+        return this.basePath;
+      }
+      //console.log("path.resolve nhidv");
+      //console.log(this.joinPath(this.basePath, routePath));
+      //console.log("basePath:" + this.basePath + "----routePath: " + routePath);
+      //return path.resolve(this.basePath, routePath);
+      return this.joinPath(this.basePath, routePath);
     },
 
     generateTitle,
-    cutLongTitle
-  }
-}
+    cutLongTitle,
+  },
+};
 </script>

@@ -1,13 +1,28 @@
 <template>
-  <div :class="{'collapse':collapse}" class="sidebar-logo-container">
+  <div :class="{ collapse: collapse }" class="sidebar-logo-container">
     <transition name="sidebarLogoFade">
-      <router-link v-if="collapse" key="collapse" class="sidebar-logo-link" to="/">
-        <img v-if="logo" :src="logo" alt="logo" class="sidebar-logo">
-        <h1 v-else class="sidebar-title">{{ title }} </h1>
+      <router-link
+        v-if="collapse"
+        key="collapse"
+        class="sidebar-logo-link"
+        to="/"
+      >
+        <img
+          v-if="logo"
+          src="@/assets/images/logo.png"
+          alt="logo"
+          class="sidebar-logo"
+        />
+        <!-- <h1 v-else class="sidebar-title">{{ title }}</h1> -->
       </router-link>
       <router-link v-else key="expand" class="sidebar-logo-link" to="/">
-        <img v-if="logo" :src="logo" alt="logo" class="sidebar-logo">
-        <h1 class="sidebar-title">{{ title }} </h1>
+        <img
+          v-if="logo"
+          src="@/assets/images/logo.png"
+          alt="logo"
+          class="sidebar-logo"
+        />
+        <!-- <h1 class="sidebar-title">{{ title }}</h1> -->
       </router-link>
     </transition>
   </div>
@@ -15,26 +30,30 @@
 
 <script>
 export default {
-  name: 'SidebarLogo',
+  name: "SidebarLogo",
   props: {
     collapse: {
       type: Boolean,
-      required: true
+      required: true,
     },
-    sidebarLogo: String
+    sidebarLogo: String,
+    //this.sidebarLogo ||
   },
   data() {
     return {
       title: process.env.VUE_APP_HEADER,
-      logo: this.sidebarLogo || `${process.env.VUE_APP_FE_LIB || 'gateway/fe-lib/'}assets/images/logo.png`
-    }
-  }
-}
+      logo:
+        `${process.env.VUE_APP_LOGO}` ||
+        require("@/assets/images/logo.png") ||
+        `${process.env.VUE_APP_FE_LIB}assets/images/logo.png`,
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
 .sidebarLogoFade-enter-active {
-  transition: opacity 1.0s;
+  transition: opacity 1s;
 }
 
 .sidebarLogoFade-enter,
@@ -56,8 +75,8 @@ export default {
     width: 100%;
 
     & .sidebar-logo {
-      width: 40px;
-      height: 40px;
+      width: 300px;
+      height: 36px;
       vertical-align: middle;
       margin-left: 10px;
       margin-right: 12px;

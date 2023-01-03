@@ -4,13 +4,13 @@
 
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
-        :active-text-color="variables.menuActiveText"
-        :background-color="variables.menuBg"
+        :active-text-color="variablesCss.menuActiveText"
+        :background-color="variablesCss.menuBg"
         :collapse="isCollapse"
         :collapse-transition="false"
         :default-active="activeMenu"
         :default-openeds="defaultOpen"
-        :text-color="variables.menuText"
+        :text-color="variablesCss.menuText"
         :unique-opened="false"
         mode="vertical"
       >
@@ -26,46 +26,46 @@
 </template>
 
 <script>
-import SidebarLogo from './SidebarLogo.vue'
-import SidebarItem from './SidebarItem.vue'
-import variables from '@/theme/variables.css'
+import SidebarLogo from "./SidebarLogo.vue";
+import SidebarItem from "./SidebarItem.vue";
+import * as variables from "../../../theme/lib/variables.css";
 
 export default {
   components: { SidebarItem, Logo: SidebarLogo },
   computed: {
     permission_routes() {
-      return this.$store.getters.permission_routes
+      return this.$store.getters.permission_routes;
     },
     sidebar() {
-      return this.$store.getters.sidebar
+      return this.$store.getters.sidebar;
     },
     activeMenu() {
-      const route = this.$route
-      const { meta, path } = route
+      const route = this.$route;
+      const { meta, path } = route;
       // if set path, the sidebar will highlight the path you set
       if (meta.activeMenu) {
-        return meta.activeMenu
+        return meta.activeMenu;
       }
-      return path
+      return path;
     },
     showLogo() {
-      return this.$store.state.settings.sidebarLogo
+      return this.$store.state.settings.sidebarLogo;
     },
-    variables() {
-      return variables
+    variablesCss() {
+      return variables;
     },
     isCollapse() {
-      return !this.sidebar.opened
+      return !this.sidebar.opened;
     },
     defaultOpen() {
       const path = this.permission_routes.filter(
-        item => location.pathname.includes(item.path) && item.path !== '/'
-      )
-      const mainAppPath = path.length ? path[0].path : ''
-      return [mainAppPath]
-    }
-  }
-}
+        (item) => location.pathname.includes(item.path) && item.path !== "/"
+      );
+      const mainAppPath = path.length ? path[0].path : "";
+      return [mainAppPath];
+    },
+  },
+};
 </script>
 
 <style>
