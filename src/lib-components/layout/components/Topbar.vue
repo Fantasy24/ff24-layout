@@ -138,7 +138,7 @@ export default {
       this.$store.dispatch("app/toggleSideBar");
     },
     async logout() {
-      await apiFactory.callAPI(ConstantAPI.LOGIN.LOGOUT, getToken());
+      //await apiFactory.callAPI(ConstantAPI.LOGIN.LOGOUT, getToken());
       asyncRoutes.length = 0;
       await this.$store.dispatch("user/logout");
       await this.$router.push(`/login?redirect=/dashboard`);
