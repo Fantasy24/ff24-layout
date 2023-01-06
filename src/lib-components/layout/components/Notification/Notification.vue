@@ -210,6 +210,7 @@ export default {
     },
 
     refreshCount() {
+      return false;
       const param = {
         appCode: process.env.VUE_APP_APP_CODE,
         status: "1",
