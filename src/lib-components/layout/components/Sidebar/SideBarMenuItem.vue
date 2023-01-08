@@ -15,10 +15,10 @@ export default {
   render(h, context) {
     const { icon, title } = context.props;
     const vnodes = [];
-    console.log("icon nhidv");
-    console.log(icon);
-    console.log(title);
-    console.log(context);
+    // console.log("icon nhidv");
+    // console.log(icon);
+    // console.log(title);
+    // console.log(context);
     if (icon) {
       if (icon.includes("el-icon")) {
         // vnodes.push(<i class={[icon, "sub-el-icon"]} />);
@@ -54,8 +54,8 @@ export default {
       vnodes.push(h("span", { slot: "title" }, title));
     }
 
-    console.log(vnodes);
-    console.log(h);
+    // console.log(vnodes);
+    // console.log(h);
     return vnodes;
   },
 };

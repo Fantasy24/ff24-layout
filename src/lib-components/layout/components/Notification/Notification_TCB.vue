@@ -16,7 +16,7 @@
         style="overflow: hidden"
         @tab-click="onClickNotify(true)"
       >
-        <el-tab-pane label="Hóa chất" name="1">
+        <!-- <el-tab-pane label="Hóa chất" name="1">
           <span slot="label" class="labelTab"
             ><el-badge :value="total.resource">Hóa chất</el-badge></span
           >
@@ -57,7 +57,7 @@
             @refreshCount="refreshCount"
             @reload="onClickNotify(true)"
           />
-        </el-tab-pane>
+        </el-tab-pane> -->
         <el-tab-pane name="4">
           <span slot="label" class="labelTab"
             ><el-badge :value="total.application">Ứng dụng</el-badge></span
@@ -210,6 +210,7 @@ export default {
     },
 
     refreshCount() {
+      return false;
       const param = {
         appCode: process.env.VUE_APP_APP_CODE,
         status: "1",
