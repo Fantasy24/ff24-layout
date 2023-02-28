@@ -13,7 +13,7 @@
           alt="logo"
           class="sidebar-logo"
         />
-        <h1 v-else class="sidebar-title">{{ title }}</h1>
+        <!-- <h1 v-else class="sidebar-title">{{ title }}</h1> -->
       </router-link>
       <router-link v-else key="expand" class="sidebar-logo-link" to="/">
         <img
@@ -22,7 +22,7 @@
           alt="logo"
           class="sidebar-logo"
         />
-        <h1 class="sidebar-title">{{ title }}</h1>
+        <!-- <h1 class="sidebar-title">{{ title }}</h1> -->
       </router-link>
     </transition>
   </div>
@@ -75,8 +75,8 @@ export default {
     width: 100%;
 
     & .sidebar-logo {
-      width: 40px;
-      height: 40px;
+      width: 300px;
+      height: 36px;
       vertical-align: middle;
       margin-left: 10px;
       margin-right: 12px;

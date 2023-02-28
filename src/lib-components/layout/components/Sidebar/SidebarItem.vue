@@ -28,13 +28,27 @@
       :title="generateTitle(item.name).toUpperCase()"
       popper-append-to-body
     >
-      <template slot="title">
+      <template v-if="upperMenu" slot="title">
         <item
           v-if="item.meta"
           :icon="item.meta && item.meta.icon"
           :title="cutLongTitle(generateTitle(item.name)).toUpperCase()"
         />
       </template>
+      <template v-if="!upperMenu" slot="title">
+        <item
+          v-if="item.meta"
+          :icon="item.meta && item.meta.icon"
+          :title="cutLongTitle(generateTitle(item.name))"
+        />
+      </template>
+      <!-- <template slot="title">
+        <item
+          v-if="item.meta"
+          :icon="item.meta && item.meta.icon"
+          :title="cutLongTitle(generateTitle(item.name)).toUpperCase()"
+        />
+      </template> -->
       <sidebar-item
         v-for="child in item.children"
         :key="child.path"
@@ -70,6 +84,14 @@ export default {
     basePath: {
       type: String,
       default: "",
+    },
+  },
+  computed: {
+    upperMenu() {
+      return (
+        !process.env.VUE_APP_UPPER_CASE_MENU ||
+        process.env.VUE_APP_UPPER_CASE_MENU === "true"
+      );
     },
   },
   data() {
@@ -112,7 +134,7 @@ export default {
         return basePath;
       } else {
         const strPath = basePath + "/" + routePath;
-        return strPath.replace("\/\/", "\/");
+        return strPath.replace("//", "/");
       }
     },
     resolvePath_BK(routePath) {

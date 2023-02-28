@@ -30,7 +30,34 @@
           </el-tooltip>
         </el-col>
         <!-- v-if="$store.getters.device !== 'mobile'" -->
-        <el-col :xs="24" :sm="24" :md="3" :lg="3" :xl="3">
+        <el-col
+          :xs="24"
+          :sm="24"
+          :md="3"
+          :lg="3"
+          :xl="3"
+          class="help-customers"
+        >
+          <el-tooltip
+            :open-delay="500"
+            class="item"
+            content="Hướng dẫn sử dụng phần mềm"
+            effect="dark"
+            placement="top-start"
+          >
+            <span @click="downloadHelpCustomers"
+              ><i class="el-icon-notebook-2"
+            /></span>
+          </el-tooltip>
+        </el-col>
+        <el-col
+          :xs="24"
+          :sm="24"
+          :md="3"
+          :lg="3"
+          :xl="3"
+          class="change-language"
+        >
           <el-tooltip
             v-if="isShowLangSelect"
             :open-delay="500"
@@ -63,12 +90,12 @@
               </div>
             </div>
             <el-dropdown-menu slot="dropdown">
-              <!-- <router-link to="/profile/index">
+              <router-link to="/profile/index">
                 <el-dropdown-item>
                   <font-awesome-icon icon="user" />
                   {{ $t("topbar.profile") }}
                 </el-dropdown-item>
-              </router-link> -->
+              </router-link>
 
               <el-dropdown-item
                 v-if="isTurnOffAuth"
@@ -97,6 +124,7 @@ import { asyncRoutes } from "@/router/routerFactory";
 import apiFactory from "ff24-js/src/api/apiFactory";
 import ConstantAPI from "ff24-js/src/utils/ConstantAPI";
 import { getToken } from "ff24-js/src/utils/authCookie";
+import { API_AUTH } from "ff24-js/src/utils/Constant";
 
 export default {
   components: {
@@ -132,13 +160,26 @@ export default {
     orgInfo() {
       return this.$store.getters.orgName;
     },
+    apiHelpCustomers() {
+      return process.env.VUE_APP_HELP_API;
+    },
+    helpFileName() {
+      return process.env.VUE_APP_HELP_FILE_NAME;
+    },
   },
   methods: {
     toggleSideBar() {
       this.$store.dispatch("app/toggleSideBar");
     },
+    async downloadHelpCustomers() {
+      const apiParam = {
+        url: `${API_AUTH}` + this.apiHelpCustomers,
+        method: "GET",
+      };
+      await apiFactory.download(apiParam, this.helpFileName, {});
+    },
     async logout() {
-      //await apiFactory.callAPI(ConstantAPI.LOGIN.LOGOUT, getToken());
+      await apiFactory.callAPI(ConstantAPI.LOGIN.LOGOUT, getToken());
       asyncRoutes.length = 0;
       await this.$store.dispatch("user/logout");
       await this.$router.push(`/login?redirect=/dashboard`);
